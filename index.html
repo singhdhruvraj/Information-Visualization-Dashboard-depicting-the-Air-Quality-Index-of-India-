@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>D3 Charts</title>
+
+		<!-- Bootstrap 4 -->
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js"></script>
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+		<!-- Map Chart JavaScript -->
+		<script src="./javascript/map.js"></script>
+		<!-- <script src="./javascript/bubble.js"></script> -->
+		<script src="./javascript/heatmap.js"></script>
+		<script src="./javascript/polarchart.js"></script>
+
+		<!-- D3 JavaScript -->
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+
+		<!-- for map colouring !-->
+		<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+		<!-- Loadash script for data parsing !-->
+		<script
+			type="text/javascript"
+			src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3-geo/0.0.1/d3-geo.min.js"
+			integrity="sha512-PD3OsRQ+mL+NiKE7OE4dkKvSG3w5JnWVPJP0/a2jDYAVlrsXraXaneymKnUx+EExR6sJCAbHAoC7RNSxf5XOww=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<link rel="stylesheet" href="stylesheet/index.css" />
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="card" id="title">
+						<div class="card-body">
+							<h3>BreathIndia: Air Quality Index Dashboard</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+
+			<!-- <div class="row"> -->
+			<div class="row">
+				<!-- <div class="card"> -->
+				<div style="margin-left:35%" id="chart1">
+					<h5 class="card-title">
+						Different Pollutants Concentration and Top Contributed Cities
+					</h5>
+                    <label  for="polaryears"
+							>Select Year :</label
+						>
+						<select name="polaryears" id="polaryears"></select>
+                        <br>
+				</div>
+                <div style="margin-left:35%" id="barchart">
+                    <h5 id="barchartheading" style="display:none">Top 10 Contributed Cities of Pollutants</h5>
+                </div>
+				<!-- </div> -->
+			</div>
+			<div class="row" id="chart2row">
+				<!-- <div class="card"> -->
+				<div id="chart2">
+					<h5 id="heatmapheadings" class="card-title">
+						SO2 Level in Different States of India Through Out
+						Years
+					</h5>
+					<label style="margin-left: 45%" for="pollutants"
+						>Pollutants :</label
+					>
+					<select name="pollutants" id="pollutants">
+						<option
+							value="SO2"
+							onchange="heatmapChart('SO2')"
+						>
+							SO2
+						</option>
+						<option
+							value="NO2"
+							onchange="heatmapChart('NO2')"
+						>
+							NO2
+						</option>
+						<option
+							value="PM2_5"
+							onchange="heatmapChart('PM2_5')"
+						>
+							PM2_5
+						</option>
+					</select>
+				</div>
+				<!-- </div> -->
+			</div>
+			<div class="row" id="mapdivrow">
+				<!-- <div class="card"> -->
+				<div class="col-8" id="mapdivcol">
+					<div id="mapdiv">
+						<h5 class="card-title">
+							Air Quality Index of Different States of
+							India
+						</h5>
+						<label style="margin-left: 45%" for="mapyears"
+							>Select Year :</label
+						>
+						<select name="mapyears" id="mapyears"></select>
+					</div>
+				</div>
+				<div class="col-4">
+					<br />
+					<br />
+					<table
+						style="width: 191px; display: none"
+						class="table table-bordered"
+						id="t-table"
+					>
+						<tbody>
+							<tr scope="col">
+								<th>State</th>
+								<td id="t-state"></td>
+							</tr>
+							<tr>
+								<th>Year Data</th>
+								<td id="t-year"></td>
+							</tr>
+							<tr>
+								<th>AQI</th>
+								<td id="t-aqi"></td>
+							</tr>
+							<tr>
+								<th>SO2</th>
+								<td id="t-so2"></td>
+							</tr>
+							<tr>
+								<th>NO2</th>
+								<td id="t-no2"></td>
+							</tr>
+							<tr>
+								<th>PM2_5</th>
+								<td id="t-pm2_5"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- </div> -->
+			</div>
+			<!-- </div> -->
+		</div>
+	</body>
+
+	<script>
+		window.onload = drawMap(); //for first time chart loading
+		window.onload = drawheatmap(); //for first time chart loading
+		window.onload = drawpolarchart(); //for first time chart loading
+	</script>
+</html>
