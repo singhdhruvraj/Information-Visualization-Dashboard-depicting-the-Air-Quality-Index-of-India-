@@ -1,0 +1,64 @@
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: auto;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background: rgb(103, 148, 220);
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0.9;
+    border: 1px solid rgb(255, 255, 255);
+    color: #fff;
+}
+
+#title{
+    background: #506ebf;
+    text-align: center;
+    color: white;
+}
+
+h3{
+    font-weight: bold;
+}
+
+div.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*text-align: center;*/
+}
+
+.tooltips {
+    background: white;
+    box-shadow: 0 0 5px #999999;
+    border-radius: 5px;
+    color: #333;
+    display: none;
+    font-size: 11px;
+    left: 130px;
+    padding: 11px;
+    position: absolute;
+
+    top: 95px;
+    width: 251px;
+    z-index: 10;
+}
+
+h5{
+    text-align: center;
+    margin: 10px;
+}
+
+.axis line,
+.axis circle {
+	stroke: #cccccc;
+	stroke-width: 1px;
+}
+
+.axis circle {
+	fill: none;
+}
+
+.r.axis text {
+	text-anchor: end;
+}
